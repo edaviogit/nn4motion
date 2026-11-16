@@ -1,0 +1,22 @@
+# Rust
+/target/
+**/target/
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Checkpoints / logs
+*.safetensors
+*.bin
+*.pt
+*.ckpt
+/runs/
+/checkpoints/
+*.log
+
+# Env
+.env
+.env.*

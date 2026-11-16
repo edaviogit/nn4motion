@@ -1,0 +1,19 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Build
+        run: cargo build -p nn4motion
+      - name: Test
+        run: cargo test -p nn4motion
+      - name: Smoke train
+        run: cargo run -p nn4motion -- smoke --steps 3 --seq-len 8 --batch-size 1
